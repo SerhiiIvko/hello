@@ -1,0 +1,10 @@
+insert into contacts values(1, 'John Connor');
+insert into contacts values(2, 'Sarah Connor');
+insert into contacts values(3, 'Bill Clinton');
+insert into contacts values(4, 'Barak Obama');
+insert into contacts values(5, 'Bill Gates');
+insert into contacts values(6, 'Linus Torvalds');
+insert into contacts values(7, 'Steeve Jobs');
+insert into contacts values(8, 'Alice Cooper');
+insert into contacts values(9, 'Kenny McCormick');
+insert into contacts values(10, 'Eric Cartmann');
