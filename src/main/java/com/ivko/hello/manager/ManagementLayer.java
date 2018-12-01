@@ -1,29 +1,29 @@
 package com.ivko.hello.manager;
 
 import com.ivko.hello.model.Contact;
+import com.ivko.hello.service.CacheServiceLayer;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 import java.util.regex.PatternSyntaxException;
 
+//Требует доработки:
+//1. Отсутствует описание как развернуть проект
+//2. Работа с базой вручную через громоздкий, не очень читабильный код
+//3. Вычитывать все записи из базы на каждый запрос от каждого пользователя неэффективно
+//4. Для невалиднго регулярнго выражение - некорректный статус ответа
+//5. Использование system.out вместо логирования
+
 public class ManagementLayer {
-    private static final Logger LOG = Logger.getLogger(String.valueOf(ManagementLayer.class));
 
     private ManagementLayer() {
     }
 
-    private static class ManagementHolder{
+    private static class ManagementHolder {
         static final ManagementLayer Instance = new ManagementLayer();
     }
 
@@ -33,50 +33,33 @@ public class ManagementLayer {
 
     public List<Contact> getFilteredContacts(String regex, Connection dbConnection)
             throws SQLException, PatternSyntaxException {
-        Pattern pattern = Pattern.compile(regex);
-        List<Contact> contacts = new ArrayList<>();
-        Statement statement = null;
-        ResultSet resultSet = null;
-        System.out.println("Method started");
+        DBManager dbManager = new DBManager();
         if (dbConnection == null) {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Context context = new InitialContext();
-                DataSource dataSource = (DataSource) context.lookup("java:/jdbc/hello");
-                dbConnection = dataSource.getConnection();
-                System.out.println("Connection enable");
-            } catch (NamingException|ClassNotFoundException e) {
-                LOG.info(e.getMessage());
-            }
+            dbConnection = dbManager.getDBConnection();
         }
+        List<Contact> contacts = new ArrayList<>();
+        ResultSet resultSet = null;
+        Map<Long, String> dbCache = null;
         try {
             if (dbConnection != null) {
-                statement = dbConnection.createStatement();
-                System.out.println("statement created");
-                statement.setFetchSize(1);
-                resultSet = statement.executeQuery("SELECT * FROM contacts");
-                while (resultSet.next()) {
-                    String contactNameString = resultSet.getString(2);
-                    Matcher matcher = pattern.matcher(contactNameString);
-                    if (!matcher.matches()) {
-                        Contact contact = new Contact();
-                        contact.setId(resultSet.getInt(1));
-                        contact.setName(contactNameString);
-                        contacts.add(contact);
-                        System.out.println("contact added");
-                    }
-                }
+                resultSet = dbManager.createDBStatement(dbConnection);
+                dbCache = CacheServiceLayer.createCacheFromDB(resultSet);
+                applyFilter(regex, contacts, dbCache);
             }
-            System.out.println(contacts.toString());
         } finally {
             if (resultSet != null) {
                 resultSet.close();
             }
-            if (statement != null) {
-                statement.close();
-            }
         }
-        System.out.println(contacts);
         return contacts;
+    }
+
+    private void applyFilter(String regex, List<Contact> contacts, Map<Long, String> cache) {
+        cache.entrySet().stream().filter(i -> !i.getValue().matches(regex)).forEach(i -> {
+            Contact contact = new Contact();
+            contact.setId(i.getKey());
+            contact.setName(i.getValue());
+            contacts.add(contact);
+        });
     }
 }
