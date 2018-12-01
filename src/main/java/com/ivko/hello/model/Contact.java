@@ -1,25 +1,19 @@
 package com.ivko.hello.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.Objects;
 
 public class Contact {
-    private int id;
+    private long id;
     private String name;
 
     public Contact() {
     }
 
-    public Contact(ResultSet resultSet) throws SQLException {
-        setId(resultSet.getInt(1));
-        setName(resultSet.getString(2));
-    }
-
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -34,5 +28,19 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact [Id=" + id + ", Name=" + name + "]";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contact)) return false;
+        Contact contact = (Contact) o;
+        return id == contact.id &&
+                name.equals(contact.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
