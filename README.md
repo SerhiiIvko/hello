@@ -10,11 +10,11 @@ For deploying used Tomcat servlet container, in application used Jersey Servlet 
 During deploying perhaps error, if regular expression in parameter "nameFilter" contain character '^' and some
 other. For resolving this problem necessary find file server.xml in Tomcat configuration directory and replace
 tag <Connector ... /> on this configuration:
-<Connector port="8080" protocol="HTTP/1.1"
-	       URIEncoding="UTF-8"
-           connectionTimeout="20000"
-           redirectPort="8443"
-	       relaxedQueryChars='^{}[]|$*\'/>
+port="8080" protocol="HTTP/1.1"
+URIEncoding="UTF-8"
+connectionTimeout="20000"
+redirectPort="8443"
+relaxedQueryChars='^{}[]|$*\'
 
 Database configuration is written in DBManager.java, it can be changed for use on other config data.
 
