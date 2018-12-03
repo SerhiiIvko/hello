@@ -6,17 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2153ab2-d669-4d16-8758-de5aaeff8cd7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/ManagementLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/ManagementLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivko/hello/service/CacheServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivko/hello/service/CacheServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ivko/hello/service/WebServiceLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ivko/hello/service/WebServiceLayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ivko/hello/TestRegexMethodWithH2DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ivko/hello/TestRegexMethodWithH2DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ivko/hello/manager/DBManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ivko/hello/manager/DBManagerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ivko/hello/service/CacheServiceLayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ivko/hello/service/CacheServiceLayerTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="d2153ab2-d669-4d16-8758-de5aaeff8cd7" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="55" selection-start-column="55" selection-end-column="55" />
+            <state relative-caret-position="90">
+              <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -137,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="120">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -177,7 +167,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/RegexValidator.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ivko/hello/service/CacheService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ivko/hello/model/Contact.java" />
@@ -191,6 +180,7 @@
         <option value="$PROJECT_DIR$/src/test/java/com/ivko/hello/manager/DBManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ivko/hello/manager/ManagementLayer.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -639,7 +629,7 @@
       <workItem from="1543571704845" duration="2352000" />
       <workItem from="1543574100932" duration="19634000" />
       <workItem from="1543677677629" duration="23413000" />
-      <workItem from="1543771507462" duration="14206000" />
+      <workItem from="1543771507462" duration="14454000" />
     </task>
     <task id="LOCAL-00001" summary="Add project">
       <created>1543239568493</created>
@@ -669,13 +659,17 @@
       <option name="project" value="LOCAL" />
       <updated>1543706181365</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring 1.1.">
+      <created>1543851916656</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1543851916656</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_hello - 2018.12.03 at 17h 09m 00s.xml">
-      <configuration name="All in hello" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_hello - 2018.12.03 at 17h 09m 13s.xml">
       <configuration name="All in hello" configurationId="JUnit" />
     </history-entry>
@@ -703,15 +697,17 @@
     <history-entry file="All_in_hello - 2018.12.03 at 17h 20m 56s.xml">
       <configuration name="All in hello" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_hello - 2018.12.03 at 17h 44m 06s.xml">
+      <configuration name="All in hello" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90938000" />
+    <option name="totallyTimeSpent" value="91186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="27" width="1299" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3216281" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29289705" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -720,7 +716,7 @@
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49960095" weight="0.3689655" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49960095" visible="true" weight="0.42413792" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -739,7 +735,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" weight="0.13727055" />
+      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.13727055" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.16679968" />
     </layout>
@@ -752,7 +748,8 @@
     <MESSAGE value="Add .gitignore" />
     <MESSAGE value="Add .travis CI" />
     <MESSAGE value="Fix some problems, add new tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some problems, add new tests" />
+    <MESSAGE value="Refactoring 1.1." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring 1.1." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -910,13 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="55" selection-start-column="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/META-INF/context.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -933,8 +923,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
         </state>
       </provider>
     </entry>
