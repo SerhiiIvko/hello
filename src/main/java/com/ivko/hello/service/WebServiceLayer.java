@@ -11,9 +11,12 @@ import java.net.URLDecoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+
+import static com.ivko.hello.service.CacheServiceLayer.createCacheFromDB;
 
 @Path("contacts")
 public class WebServiceLayer {
@@ -32,11 +35,9 @@ public class WebServiceLayer {
             try {
                 contacts = ManagementLayer
                         .getInstance()
-                        .getFilteredContacts(URLDecoder.decode(val, "UTF-8"), null);
-            } catch (SQLException e) {
+                        .getFilteredContacts(URLDecoder.decode(val, "UTF-8"));
+            } catch (SQLException | UnsupportedEncodingException e) {
                 LOG.info(e.getMessage());
-            } catch (UnsupportedEncodingException e) {
-                e.getMessage();
             }
             return contacts;
         }
@@ -47,6 +48,7 @@ public class WebServiceLayer {
             Pattern.compile(val);
             return true;
         } catch (PatternSyntaxException ex) {
+            LOG.info(ex.getMessage());
             return false;
         }
     }

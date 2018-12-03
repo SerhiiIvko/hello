@@ -3,13 +3,13 @@ package com.ivko.hello.manager;
 import com.ivko.hello.model.Contact;
 import com.ivko.hello.service.CacheServiceLayer;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.PatternSyntaxException;
+
+import static com.ivko.hello.service.CacheServiceLayer.createCacheFromDB;
 
 //Требует доработки:
 //1. Отсутствует описание как развернуть проект
@@ -31,25 +31,14 @@ public class ManagementLayer {
         return ManagementHolder.Instance;
     }
 
-    public List<Contact> getFilteredContacts(String regex, Connection dbConnection)
+    public List<Contact> getFilteredContacts(String regex)
             throws SQLException, PatternSyntaxException {
-        DBManager dbManager = new DBManager();
-        if (dbConnection == null) {
-            dbConnection = dbManager.getDBConnection();
-        }
         List<Contact> contacts = new ArrayList<>();
-        ResultSet resultSet = null;
-        Map<Long, String> dbCache = null;
-        try {
-            if (dbConnection != null) {
-                resultSet = dbManager.createDBStatement(dbConnection);
-                dbCache = CacheServiceLayer.createCacheFromDB(resultSet);
-                applyFilter(regex, contacts, dbCache);
-            }
-        } finally {
-            if (resultSet != null) {
-                resultSet.close();
-            }
+        if (CacheServiceLayer.isCacheInitialized()) {
+            applyFilter(regex, contacts, createCacheFromDB());
+        } else {
+            Map<Long, String> dbCache = createCacheFromDB();
+            applyFilter(regex, contacts, dbCache);
         }
         return contacts;
     }

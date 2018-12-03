@@ -7,13 +7,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CacheServiceLayerTest {
-    private Map<Long, String> dbCache;
 
     @Test
     public void createCacheFromDB() {
         //GIVEN:
-        dbCache = new ConcurrentHashMap<>();
-        long expectedKey = 9999999;
+        Map<Long, String> dbCache = new ConcurrentHashMap<>();
+        long expectedKey = 1;
         String expectedValue = "Elon Musk";
 
         //WHEN:

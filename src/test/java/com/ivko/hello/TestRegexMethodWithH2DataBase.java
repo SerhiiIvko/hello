@@ -1,7 +1,7 @@
 package com.ivko.hello;
 
-import com.ivko.hello.model.Contact;
 import com.ivko.hello.manager.ManagementLayer;
+import com.ivko.hello.model.Contact;
 import org.h2.tools.DeleteDbFiles;
 import org.junit.Test;
 
@@ -53,7 +53,7 @@ public class TestRegexMethodWithH2DataBase {
             //WHEN:
             regex = "^Z.*$";
             expectedSize = 10;
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //THEN:
             assertEquals(expectedSize, contacts.size());
@@ -61,7 +61,7 @@ public class TestRegexMethodWithH2DataBase {
             //WHEN:
             regex = "^B.*$";
             expectedSize = 7;
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //THEN:
             assertEquals(expectedSize, contacts.size());
@@ -69,7 +69,7 @@ public class TestRegexMethodWithH2DataBase {
             //WHEN:
             regex = "^.*[a-z].*$";
             expectedSize = 0;
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //THEN:
             assertEquals(expectedSize, contacts.size());
@@ -77,7 +77,7 @@ public class TestRegexMethodWithH2DataBase {
             //WHEN:
             regex = "^.*[B].*$";
             expectedSize = 7;
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //THEN:
             assertEquals(expectedSize, contacts.size());
@@ -105,7 +105,7 @@ public class TestRegexMethodWithH2DataBase {
             //WHEN:
             regex = null;
             expectedSize = 0;
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //THEN:
             assertEquals(expectedSize, contacts.size());
@@ -133,13 +133,13 @@ public class TestRegexMethodWithH2DataBase {
             regex = "kkk***===888888pp/tttttt";
 
             //THEN:
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
 
             //WHEN:
             regex = "";
 
             //THEN:
-            contacts = ManagementLayer.getInstance().getFilteredContacts(regex, connection);
+            contacts = ManagementLayer.getInstance().getFilteredContacts(regex);
         } catch (SQLException e) {
             LOG.info(e.getMessage());
         } finally {
