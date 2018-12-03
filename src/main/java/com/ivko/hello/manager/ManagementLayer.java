@@ -11,13 +11,6 @@ import java.util.regex.PatternSyntaxException;
 
 import static com.ivko.hello.service.CacheServiceLayer.createCacheFromDB;
 
-//Требует доработки:
-//1. Отсутствует описание как развернуть проект
-//2. Работа с базой вручную через громоздкий, не очень читабильный код
-//3. Вычитывать все записи из базы на каждый запрос от каждого пользователя неэффективно
-//4. Для невалиднго регулярнго выражение - некорректный статус ответа
-//5. Использование system.out вместо логирования
-
 public class ManagementLayer {
 
     private ManagementLayer() {

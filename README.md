@@ -1,5 +1,5 @@
 # hello
-[![Build Status](https://travis-ci.com/SerhiiIvko/RESThello.svg?branch=master)](https://travis-ci.com/SerhiiIvko/RESThello)
+[![Build Status](https://travis-ci.com/SerhiiIvko/hello.svg?branch=master)](https://travis-ci.com/SerhiiIvko/hello)
 
 This web-application use address bar for filtering contacts from database.
 
