@@ -3,5 +3,6 @@ jdk: oraclejdk8
 branches:
   only:
     - master
+    - refactoring1.1
 sudo: false
 script: mvn clean install
