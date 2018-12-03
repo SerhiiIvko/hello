@@ -21,7 +21,7 @@ public class TestRegexMethodWithH2DataBase {
     private static Connection dataBaseInit() {
         Connection connection = null;
         try {
-            DeleteDbFiles.execute("~", "test", true);
+            DeleteDbFiles.execute("~", "test", false);
             Class.forName("org.h2.Driver");
             connection = DriverManager.getConnection("jdbc:h2:~/test");
             Statement statement = connection.createStatement();
