@@ -30,17 +30,6 @@ public class DBManagerTest {
     }
 
     @Test
-    public void closeStatementShouldCloseStatement() {
-        try {
-            Statement statement = connection.createStatement();
-            dbManager.closeStatement(statement);
-            assertTrue(statement.isClosed());
-        }catch (SQLException e){
-            LOG.info(e.getMessage());
-        }
-    }
-
-    @Test
     public void closeStatementWithNullShouldNotThrow() {
         dbManager.closeStatement(null);
     }
