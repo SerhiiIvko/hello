@@ -1,6 +1,7 @@
 package com.ivko.hello.service;
 
-import com.ivko.hello.manager.ManagementLayer;
+import com.ivko.hello.manager.DbManager;
+import com.ivko.hello.manager.NameFilter;
 import com.ivko.hello.model.Contact;
 
 import javax.ws.rs.*;
@@ -11,16 +12,24 @@ import java.net.URLDecoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import static com.ivko.hello.service.CacheServiceLayer.createCacheFromDB;
-
 @Path("contacts")
-public class WebServiceLayer {
-    private static final Logger LOG = Logger.getLogger(String.valueOf(WebServiceLayer.class));
+public class WebService {
+    private static final Logger LOG = Logger.getLogger(String.valueOf(WebService.class));
+
+    private NameFilter nameFilter;
+
+    public WebService() {
+        try {
+            DbManager.initialize(DbManager.getMySQLDataSource());
+        } catch (SQLException e) {
+            LOG.warning(e.getMessage());
+        }
+        nameFilter = new NameFilter();
+    }
 
     @GET
     @Produces("application/json; charset=UTF-8")
@@ -33,10 +42,8 @@ public class WebServiceLayer {
         } else {
             List<Contact> contacts = new ArrayList<>();
             try {
-                contacts = ManagementLayer
-                        .getInstance()
-                        .getFilteredContacts(URLDecoder.decode(val, "UTF-8"));
-            } catch (SQLException | UnsupportedEncodingException e) {
+                contacts = nameFilter.getFilteredContacts(URLDecoder.decode(val, "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
                 LOG.info(e.getMessage());
             }
             return contacts;
